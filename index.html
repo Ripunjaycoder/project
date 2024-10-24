@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripunjay Deka | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hello, I’m Ripunjay Deka, a passionate developer and content creator.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Currently pursuing my final year of Bachelor's degree, with interests in coding, app development, and IoT.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>Wallpaper App</li>
+            <li>Password Generator</li>
+            <li>QR Code App</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        
+        <div class="social-media">
+            <h3>Connect with me</h3>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/your-profile" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://x.com/your-profile" target="_blank"><i class="fab fa-X"></i>X</a></li>
+                <li><a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/your-profile" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.yourwebsite.com" target="_blank"><i class="fas fa-globe"></i></a></li>
+                <li><a href="mailto:ripunjaydeka141@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="tel:+918473939138" target="_blank"><i class="fas fa-phone"></i></a></li>
+            
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2024 Ripunjay Deka. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        (function() {
+            emailjs.init('KpR4oy4zp3hUHJX-U'); // Replace 'YOUR_USER_ID' with your EmailJS user ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const templateParams = {
+                user_name: name,
+                user_email: email,
+                message: message
+            };
+
+            emailjs.send('service_cx3zo08', 'template_ox45sfq', templateParams)
+                .then(function(response) {
+                   alert('Message sent successfully!', response.status, response.text);
+                }, function(error) {
+                   alert('Failed to send message. Please try again.', error);
+                });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
